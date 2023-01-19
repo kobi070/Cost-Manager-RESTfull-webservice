@@ -7,10 +7,11 @@ The MongoDB database is organized into two collections: "users" and "costs". The
 The database is empty, except for a single document in the "users" collection, which includes the details of an imaginary user with the following data:
 
 #### Demo User
-id: 123123
+`id: 123123
 first_name: moshe
 last_name: israeli
-birthday: January, 10th, 1990
+birthday: January, 10th, 1990`
+
 The costs are organized according to categories: food, health, housing, sport, education, transportation, and other.
 
 ## Application
