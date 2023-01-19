@@ -20,51 +20,33 @@ Users.insertOne(dummyUser).then( (dummyUser) => {
     console.log(error);
 });
 
-router.get('/report', (req, res) => {
-    console.log("GET method for /report");
-    const {user_id, year, month} = req.query;
-
-    if (!user_id || year || !month){
-        return res.status(400).json({error: 'Missing requied parmeters'});
-    }
-
-    Costs.aggregate([
-        {
-            $match: {
-                user_id: parseInt(user_id),
-                year: parseInt(year),
-                month: month
-            }
-        },
-        {
-            $group: {
-                _id: '$category',
-                costs: {$push: '$$ROOT'}
-            }
-        }
-    ]).toArray((err, result) => {
-        if(err){
-            return res.status(500).json({error: "Failed to fetch report"});
-        }
-
-        const report = {
-            food : [],
-            helth : [],
-            housing: [],
-            sport: [],
-            education: [],
-            transportation: [],
-            other : []
-        };
-        result.forEach(item => {
-            report[item._id] = item.costs;
+router.get('/report/:year/:month/:user_id', (req, res) => {
+    // Extract the parameters from the request object
+    const { year, month, user_id } = req.params;
+    console.log(`${year}, ${month}, ${user_id}`);
+  
+    // Use Mongoose to query the database for the specific month and year and user_id
+    Costs.find({ year, month, user_id }, (err, costs) => {
+      if (err) {
+        // Handle the error
+        res.status(500).send(err);
+      } else {
+        // Create an object to store the costs by category
+        const report = {};
+  
+        // Iterate over the costs and group them by category
+        costs.forEach((cost) => {
+          if (!report[cost.category]) {
+            report[cost.category] = [];
+          }
+          report[cost.category].push(cost);
         });
-
+  
+        // Send the report as a JSON response
         res.json(report);
-
+      }
     });
-});
-
+  });
 router.get('/addcost', (req, res) => {
     console.log("GET method for /addcost");
     res.render('addcost');
