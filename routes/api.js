@@ -1,3 +1,4 @@
+const { json } = require('express');
 const express = require('express');
 const router = express.Router();
 const Costs = require('../models/costs');
@@ -19,6 +20,7 @@ Users.insertOne(dummyUser).then( (dummyUser) => {
 }).catch((error) => {
     console.log(error);
 });
+
 
 router.get('/report/:year/:month/:user_id', (req, res) => {
     // Extract the parameters from the request object
@@ -55,9 +57,9 @@ router.get('/addcost', (req, res) => {
 router.post('/addcost', (req, res, next) =>{
     
     console.log("POST method for /addcost");
-    const { user_id, year, month, day, description, category, sum} = req.body;
+    const { year, month, day, description, category, sum} = req.body;
     
-    if (!user_id || !year || !month || !day || !description || !category || !sum){
+    if ( !year || !month || !day || !description || !category || !sum){
         return res.status(400).json({ error : 'Missing required parms'});
     }
     
