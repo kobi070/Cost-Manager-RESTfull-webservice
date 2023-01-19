@@ -9,7 +9,7 @@ This project is a RESTful web service for managing daily costs. The service is b
 The MongoDB database is organized into two collections: "users" and "costs". The "users" collection holds documents that include the following properties: id, first_name, last_name, and birthday. The "costs" collection holds documents that include the following properties: user_id, year, month, day, id, description, category, and sum.
 The database is empty, except for a single document in the "users" collection, which includes the details of an imaginary user with the following data:
 
-Copy code
+# Demo User
 id: 123123
 first_name: moshe
 last_name: israeli
