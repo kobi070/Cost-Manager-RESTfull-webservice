@@ -25,17 +25,17 @@ Users.insertOne(dummyUser).then( (dummyUser) => {
 router.get('/report/:year/:month/:user_id', (req, res) => {
     // Extract the parameters from the request object
     const { year, month, user_id } = req.params;
-    console.log(`${year}, ${month}, ${user_id}`);
-  
+
     // Use Mongoose to query the database for the specific month and year and user_id
-    Costs.find({ year, month, user_id }, (err, costs) => {
+    Costs.find({year, month, user_id} , (err, costs) => {
       if (err) {
         // Handle the error
         res.status(500).send(err);
       } else {
         // Create an object to store the costs by category
         const report = {};
-  
+        console.log(costs);
+        
         // Iterate over the costs and group them by category
         costs.forEach((cost) => {
           if (!report[cost.category]) {
@@ -58,7 +58,9 @@ router.post('/addcost', (req, res, next) =>{
     
     console.log("POST method for /addcost");
     const { year, month, day, description, category, sum} = req.body;
-    
+    console.log(`${user_id}`);
+    var user_id = 123123;
+
     if ( !year || !month || !day || !description || !category || !sum){
         return res.status(400).json({ error : 'Missing required parms'});
     }
@@ -82,13 +84,55 @@ router.post('/addcost', (req, res, next) =>{
     }).catch(next);
 });
 
-router.get('/about', (req, res) => {
+router.get('/about', (res) => {
     console.log("GET method for /about");
     const devs = [
         {first_name: 'Kobi', last_name: 'Kuzi', id: 316063908, email: 'Kobi070@gmail.com'},
         {first_name: 'Dan', last_name: 'Kvitca', id: 205570674, email: 'Dkvitca@gmail.com'}
     ]
     res.json(devs);
+});
+
+router.get('/testing/:user_id', (req, res) => {
+  const {user_id} = req.params;
+  // console.log(req.params);
+
+  result = {};
+  
+  Costs.find({user_id}, (err, costs) => {
+    if(err) console.log(`this is err : ${err}`);
+    else{
+        const categories = ["food", "health", "housing", "sport", "education", "transportation", "other"];
+        
+        const result = {};
+
+        categories.forEach(c => {
+          result[c] = [];
+        });
+
+        Object.entries(costs).forEach(([key, value]) => {
+          
+          let category = value.category;
+          
+          if (categories.includes(category)){
+
+              console.log(`${[key,value]}`);
+            
+              result[category].push({[key]:value});
+            
+              console.log(`result is => ${result[category]}`);
+          }
+        });
+
+        categories.forEach(c => {
+          
+          console.log(`${c} = > ${result[c]}`);
+        
+        });
+      }
+    const json = JSON.stringify(result, null, 2);
+    res.json(json);
+  });
 });
 
 module.exports = router;

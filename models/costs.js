@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CostsSchema = new Schema({
     
     user_id : {
-        type: Number
+        type: Number 
     },
 
     year : {
