@@ -46,6 +46,8 @@ CostsSchema.statics.insertOne = function(costs) {
 };
 
 
+CostsSchema.methods.getPropertiesList = function() { return ["user_id", "day", "month", "year", "description", "category", "sum"]; };
+
 const Costs = mongoose.model('costs', CostsSchema);
 
 module.exports = Costs;

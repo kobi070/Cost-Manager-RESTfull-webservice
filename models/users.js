@@ -15,7 +15,7 @@ const UsersSchema = new Schema({
         type : String
     },
     birthday : {
-        type : Date
+        type : String
     }
 
 });
@@ -32,6 +32,12 @@ UsersSchema.statics.insertOne = function(user) {
         });
     });
 };
+
+UsersSchema.methods.getPropertiesList = function() {
+    return Object.keys(this.schema.paths);
+};
+
+
 
 const Users = mongoose.model('users', UsersSchema);
 
