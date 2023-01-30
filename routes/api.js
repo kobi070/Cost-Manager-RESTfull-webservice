@@ -27,6 +27,8 @@ async function insertUser() {
 insertUser();
 
 
+
+
 //POST method for adding cost using url parms at => addcost/:user_id/:year/:month/:day/:description/:category/:sum
 router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (req, res, next) =>{
     
@@ -56,9 +58,11 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
         res.send(`new cost: ${newCosts} has been created`);
     }).catch(next);
 });
-
+// GET method for /about => returns information about the developers
 router.get('/about', (req, res) => {
     console.log("GET method for /about");
+    console.log(`session created successfully at id => ${req.session.id}`);
+    
     const devs = [
         {first_name: 'Kobi', last_name: 'Kuzi', id: 316063908, email: 'Kobi070@gmail.com'},
         {first_name: 'Dan', last_name: 'Kvitca', id: 205570674, email: 'Dkvitca@gmail.com'}

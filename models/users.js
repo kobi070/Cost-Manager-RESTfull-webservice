@@ -37,6 +37,17 @@ UsersSchema.methods.getPropertiesList = function() {
     return Object.keys(this.schema.paths);
 };
 
+// UsersSchema.statics.getPropertiesList = function() {
+//     return new Promise((resolve, reject) => {
+//     try {
+//     const properties = Object.keys(this.schema.paths);
+//     resolve(properties);
+//     } catch (error) {
+//     reject(error);
+//     }
+//     });
+//     };
+
 
 
 const Users = mongoose.model('users', UsersSchema);

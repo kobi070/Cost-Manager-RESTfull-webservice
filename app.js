@@ -5,6 +5,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -13,7 +14,7 @@ const apiRouter = require('./routes/api');
 const app = express();
 
 // connect to mongoose server
-mongoose.connect('mongodb://localhost:27017/userCostManagerDB');
+mongoose.connect('mongodb+srv://kobi070:Sku16021996@cluster0.uvdkyi3.mongodb.net/?retryWrites=true&w=majority');
 mongoose.Promise = global.Promise;
 
 // view engine setup
@@ -25,6 +26,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'secret cost',
+  cookie: {
+    secure: true,
+    httpOnly: true,
+    maxAge: 3000
+  }
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
