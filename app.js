@@ -43,6 +43,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'secret cost',
+  resave: false,
+  saveUninitialized: true,
   cookie: {
     secure: true,
     httpOnly: true,
