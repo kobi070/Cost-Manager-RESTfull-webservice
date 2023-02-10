@@ -1,0 +1,76 @@
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: 0vQWrQ4--L_BIdO6afP7kH0EcKZZWYW8","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: ccA1gG2zJAGDotF1U5KnqX6rneYmlS87","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: SgC38G1EEIgP9dUqRiGuuyA-RsR5OAf6","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"error","message":"test.get is not a function","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: uFMRM8S0m-4hRZDiRDs1RKVXB0smHMAJ","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: tWQLaVXXis_W3qENCT1mPSEPkwcOsbDd","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'info')","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: 1YK188hAHZy5Cxyy6XAKvdddgkPWF8HE","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: Fs9QmXmmTFwcMTsZhYrqlD4un0MET2__","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/users/123123","service":"user-service"}
+{"level":"info","message":{"user_id":"123123"},"service":"user-service"}
+{"level":"info","message":"user_id : 123123","service":"user-service"}
+{"level":"info","message":"GET /api/users/12","service":"user-service"}
+{"level":"info","message":{"user_id":"12"},"service":"user-service"}
+{"level":"info","message":"user_id : 12","service":"user-service"}
+{"level":"info","message":"GET /api/users/123123","service":"user-service"}
+{"level":"info","message":{"user_id":"123123"},"service":"user-service"}
+{"level":"info","message":"user_id : 123123","service":"user-service"}
+{"level":"info","message":"GET /api/users/123123","service":"user-service"}
+{"level":"info","message":{"user_id":"123123"},"service":"user-service"}
+{"level":"info","message":"user_id : 123123","service":"user-service"}
+{"level":"info","message":"GET /api/users/1","service":"user-service"}
+{"level":"info","message":{"user_id":"1"},"service":"user-service"}
+{"level":"info","message":"user_id : 1","service":"user-service"}
+{"level":"info","message":"GET /api/users/1","service":"user-service"}
+{"level":"info","message":{"user_id":"1"},"service":"user-service"}
+{"level":"info","message":"user_id : 1","service":"user-service"}
+{"level":"info","message":"GET /api/users/2","service":"user-service"}
+{"level":"info","message":{"user_id":"2"},"service":"user-service"}
+{"level":"info","message":"user_id : 2","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/users/2","service":"user-service"}
+{"level":"info","message":{"user_id":"2"},"service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/users/2","service":"user-service"}
+{"level":"info","message":{"user_id":"2"},"service":"user-service"}
+{"level":"info","message":"user_id : 2","service":"user-service"}
+{"level":"info","message":"GET /api/users/123123","service":"user-service"}
+{"level":"info","message":{"user_id":"123123"},"service":"user-service"}
+{"level":"info","message":"user_id : 123123","service":"user-service"}
+{"level":"info","message":"GET /api/users/12312","service":"user-service"}
+{"level":"info","message":{"user_id":"12312"},"service":"user-service"}
+{"level":"info","message":"user_id : 12312","service":"user-service"}
+{"level":"info","message":"GET /api/users/123123","service":"user-service"}
+{"level":"info","message":{"user_id":"123123"},"service":"user-service"}
+{"level":"info","message":"user_id : 123123","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: MongoServerError: E11000 duplicate key error collection: test.users index: _id_ dup key: { _id: 123123 }","service":"user-service"}
+{"level":"info","message":"GET /api/report/123123/2023/January","service":"user-service"}
+{"level":"info","message":{"month":"January","user_id":"123123","year":"2023"},"service":"user-service"}
+{"level":"info","message":{"education":[],"food":[],"health":[],"housing":[],"other":[],"sport":[],"transportation":[]},"service":"user-service"}
+{"level":"info","message":"GET /api/about","service":"user-service"}
+{"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"info","message":"Session created successfully with ID: Dgd4-8nnZBcVAYoncmVGmhQ0XlYT9Ppk","service":"user-service"}
+{"level":"info","message":"Inserted a new user into the Users collection.","service":"user-service"}
+{"level":"info","message":"A user with the following details has been created: {\n  _id: 123123,\n  first_name: 'moshe',\n  last_name: 'israeli',\n  birthday: 'January 10, 1990',\n  __v: 0\n}","service":"user-service"}
