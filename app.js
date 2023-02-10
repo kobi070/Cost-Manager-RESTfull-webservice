@@ -29,7 +29,8 @@ const apiRouter = require('./routes/api');
 const app = express();
 
 // connect to mongoose server
-mongoose.connect('mongodb+srv://kobi070:Sku16021996@cluster0.uvdkyi3.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority');
+// 
 mongoose.Promise = global.Promise;
 
 // view engine setup
