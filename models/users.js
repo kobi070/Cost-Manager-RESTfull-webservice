@@ -1,3 +1,6 @@
+// Kobi Kuzi 316063908
+// Dan Kvitca 205570674,
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

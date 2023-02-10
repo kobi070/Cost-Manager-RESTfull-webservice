@@ -54,7 +54,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     const { year, month, day, description, category, sum} = req.params;
   
     // Set user_id by dummy
-    var user_id = dummyUser.user_id;
+    var user_id = 123123;
     
     // Check if any required parameters are missing
     if ( !year || !month || !day || !description || !category || !sum){
@@ -120,6 +120,8 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       const categories = ["food", "health", "housing", "sport", "education", "transportation", "other"];
       // Get a list of cost properties
       const index = Costs.prototype.getPropertiesList();
+      const indexProperties = Object.keys(Costs);
+      console.log(indexProperties);
 
       // Initialize an empty array for each category
       categories.forEach(c => {
@@ -157,6 +159,7 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       winstonLogger.info(result);
     }
     // Send the result as a JSON response
+    console.log(result);
     res.json(result);
   });
 });
