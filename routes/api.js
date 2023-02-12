@@ -93,7 +93,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
 // GET method for /about => returns information about the developers
 router.get('/about', (req, res) => {
     winstonLogger.info("GET method for /about");
-    // winstonLogger.info(`Session created successfully with ID: ${req.session.id}`);
+    winstonLogger.info(`Session created successfully with ID: ${req.session.id}`);
     const devs = [
         {first_name: 'Kobi', last_name: 'Kuzi', id: 316063908, email: 'Kobi070@gmail.com'},
         {first_name: 'Dan', last_name: 'Kvitca', id: 205570674, email: 'Dkvitca@gmail.com'}

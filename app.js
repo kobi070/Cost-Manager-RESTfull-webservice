@@ -8,7 +8,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const winston = require('winston');
-// const session = require('express-session');
+const session = require('express-session');
 
 
 // Define the Winston logging configuration
@@ -39,21 +39,18 @@ mongoose.Promise = global.Promise;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(session({
-//   secret: 'secret cost',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: {
-//     secure: true,
-//     httpOnly: true,
-//     maxAge: 3000
-//   }
-// }));
+app.use(session({
+  secret: process.env.SECRET,
+  cookie: {
+    httpOnly: process.env.COOKIE_HTTP_ONLY,
+    maxAge: process.env.COOKIE_MAX_AGE
+  }
+}));
 app.use(function (req, res, next) {
   winstonLogger.info(`${req.method} ${req.originalUrl}`);
   next();
