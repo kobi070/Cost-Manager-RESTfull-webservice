@@ -30,7 +30,6 @@ const apiRouter = require('./routes/api');
 
 const app = express();
 
-console.log(process.env.MONGO_URI);
 // connect to mongoose server
 mongoose.connect(process.env.MONGODB_URI);
 // 
