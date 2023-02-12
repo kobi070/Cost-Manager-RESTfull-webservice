@@ -22,7 +22,7 @@ async function insertUser() {
   try {
       // Define the dummy user object
       const dummyUser = {
-        id : 123123,
+        _id : 123123,
         first_name: 'moshe',
         last_name: 'israeli',
         birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
