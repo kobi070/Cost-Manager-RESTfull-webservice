@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 
 const UsersSchema = new Schema({
-    id : {
+    _id : {
         type : Number
     },
 

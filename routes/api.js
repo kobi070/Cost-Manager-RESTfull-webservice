@@ -20,11 +20,11 @@ const winstonLogger = winston.createLogger({
 // Function to insert a dummy user into the Users collection
 async function insertUser() {
   try {
-    const existingUser = await Users.find({id:123123});
+    const existingUser = await Users.find({_id:123123});
     if (!existingUser){
       // Define the dummy user object
       const dummyUser = {
-        id : 123123,
+        _id : 123123,
         first_name: 'moshe',
         last_name: 'israeli',
         birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
@@ -57,6 +57,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     
     // Destructure the parameters from the request
     const {user_id, year, month, day, description, category, sum} = req.params;
+
     
     // Check if any required parameters are missing
     if ( !year || !month || !day || !description || !category || !sum){
