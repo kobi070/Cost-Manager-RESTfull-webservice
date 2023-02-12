@@ -20,9 +20,6 @@ const winstonLogger = winston.createLogger({
 // Function to insert a dummy user into the Users collection
 async function insertUser() {
   try {
-    existingUser = await Users.find({id: 123123});
-
-    if (!existingUser) { 
       // Define the dummy user object
       const dummyUser = {
         id : 123123,
@@ -38,10 +35,6 @@ async function insertUser() {
       const insertedUser = await Users.insertOne(dummyUser);
       winstonLogger.info("Inserted a new user into the Users collection.");
       winstonLogger.info(`A user with the following details has been created: ${insertedUser}`); 
-    }
-    else {
-      winstonLogger.info(`A user with the following details has already been added to the Users collection ${dummyUser}`);
-    }
   } catch (error) {
     winstonLogger.error(`An error occurred while trying to insert a new user: ${error}`);
   }
