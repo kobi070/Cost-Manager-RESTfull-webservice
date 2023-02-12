@@ -46,10 +46,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
     httpOnly: process.env.COOKIE_HTTP_ONLY,
     maxAge: Number(process.env.COOKIE_MAX_AGE),
-    originalMaxAge: 0,
+    
   }
 }));
 app.use(function (req, res, next) {
