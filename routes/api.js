@@ -23,7 +23,7 @@ async function insertUser() {
     
     // Define the dummy user object
     const dummyUser = {
-      id : 123123,
+      _id : 123123,
       first_name: 'moshe',
       last_name: 'israeli',
       birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
@@ -51,10 +51,13 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     winstonLogger.info("Received a POST request for /addcost endpoint.");
     
     // Destructure the parameters from the request
-    const {user_id, year, month, day, description, category, sum} = req.params;
+    const { year, month, day, description, category, sum} = req.params;
   
+    // Set user_id by dummy
+    var user_id = 123123;
+    
     // Check if any required parameters are missing
-    if (!user_id || !year || !month || !day || !description || !category || !sum){
+    if ( !year || !month || !day || !description || !category || !sum){
         return res.status(400).json({ error : 'Missing required parms'});
     }
     
@@ -90,7 +93,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
 // GET method for /about => returns information about the developers
 router.get('/about', (req, res) => {
     winstonLogger.info("GET method for /about");
-    // winstonLogger.info(`Session created successfully with ID: ${req.session.id}`);
+    winstonLogger.info(`Session created successfully with ID: ${req.session.id}`);
     const devs = [
         {first_name: 'Kobi', last_name: 'Kuzi', id: 316063908, email: 'Kobi070@gmail.com'},
         {first_name: 'Dan', last_name: 'Kvitca', id: 205570674, email: 'Dkvitca@gmail.com'}
@@ -117,6 +120,7 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       const categories = ["food", "health", "housing", "sport", "education", "transportation", "other"];
       // Get a list of cost properties
       const index = Costs.prototype.getPropertiesList();
+      const indexProperties = Object.keys(Costs);
 
       // Initialize an empty array for each category
       categories.forEach(c => {
