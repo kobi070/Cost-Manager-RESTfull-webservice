@@ -39,19 +39,15 @@ mongoose.Promise = global.Promise;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false,
   cookie: {
     httpOnly: process.env.COOKIE_HTTP_ONLY,
-    maxAge: Number(process.env.COOKIE_MAX_AGE),
-    
+    maxAge: process.env.COOKIE_MAX_AGE
   }
 }));
 app.use(function (req, res, next) {
