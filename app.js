@@ -1,5 +1,5 @@
 // Kobi Kuzi 316063908
-// Dan Kvitca 205570674,
+// Dan Kvitca 205570674
 
 const createError = require('http-errors');
 const mongoose = require('mongoose');
@@ -22,14 +22,18 @@ const winstonLogger = winston.createLogger({
   ]
 });
 
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 
+process.env.MONGO_URI = 'mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority';
+
 const app = express();
 
+console.log(process.env.MONGO_URI);
 // connect to mongoose server
-mongoose.connect('mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGODB_URI);
 // 
 mongoose.Promise = global.Promise;
 

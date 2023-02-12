@@ -121,7 +121,6 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       // Get a list of cost properties
       const index = Costs.prototype.getPropertiesList();
       const indexProperties = Object.keys(Costs);
-      console.log(indexProperties);
 
       // Initialize an empty array for each category
       categories.forEach(c => {
@@ -159,7 +158,6 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       winstonLogger.info(result);
     }
     // Send the result as a JSON response
-    console.log(result);
     res.json(result);
   });
 });
