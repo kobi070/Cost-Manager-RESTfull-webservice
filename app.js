@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const winston = require('winston');
 const session = require('express-session');
 
-
 // Define the Winston logging configuration
 const winstonLogger = winston.createLogger({
   level: 'info',
@@ -43,13 +42,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: process.env.SECRET,
-  cookie: {
-    httpOnly: process.env.COOKIE_HTTP_ONLY,
-    // maxAge: process.env.COOKIE_MAX_AGE
-  }
-}));
+// app.use(session({
+//   secret: process.env.SECRET,
+//   cookie: {
+//     httpOnly: process.env.COOKIE_HTTP_ONLY,
+//     // maxAge: Number(process.env.COOKIE_MAX_AGE),
+//   }
+// }));
 app.use(function (req, res, next) {
   winstonLogger.info(`${req.method} ${req.originalUrl}`);
   next();
