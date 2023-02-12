@@ -49,6 +49,7 @@ app.use(session({
   cookie: {
     httpOnly: process.env.COOKIE_HTTP_ONLY,
     maxAge: Number(process.env.COOKIE_MAX_AGE),
+    originalMaxAge: 0,
   }
 }));
 app.use(function (req, res, next) {
