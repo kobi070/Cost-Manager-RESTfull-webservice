@@ -20,27 +20,22 @@ const winstonLogger = winston.createLogger({
 // Function to insert a dummy user into the Users collection
 async function insertUser() {
   try {
-    const existingUser = await Users.find({_id:123123});
-    if (!existingUser){
-      // Define the dummy user object
-      const dummyUser = {
-        _id : 123123,
-        first_name: 'moshe',
-        last_name: 'israeli',
-        birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
-          month: "long",
-          day: "numeric",
-          year: "numeric"
-        }).toString(),
-      };
-      // Try to insert the dummy user into the Users collection
-      const insertedUser = await Users.insertOne(dummyUser);
-      winstonLogger.info("Inserted a new user into the Users collection.");
-      winstonLogger.info(`A user with the following details has been created: ${insertedUser}`);
-    }
-    else {
-      winstonLogger.info(`User with the following details alredy exist: ${dummyUser}`);
-    }
+    
+    // Define the dummy user object
+    const dummyUser = {
+      id : 123123,
+      first_name: 'moshe',
+      last_name: 'israeli',
+      birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      }).toString(),
+    };
+    // Try to insert the dummy user into the Users collection
+    const insertedUser = await Users.insertOne(dummyUser);
+    winstonLogger.info("Inserted a new user into the Users collection.");
+    winstonLogger.info(`A user with the following details has been created: ${insertedUser}`);
   } catch (error) {
     winstonLogger.error(`An error occurred while trying to insert a new user: ${error}`);
   }
@@ -57,8 +52,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     
     // Destructure the parameters from the request
     const {user_id, year, month, day, description, category, sum} = req.params;
-
-    
+  
     // Check if any required parameters are missing
     if ( !year || !month || !day || !description || !category || !sum){
         return res.status(400).json({ error : 'Missing required parms'});
@@ -123,7 +117,6 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
       const categories = ["food", "health", "housing", "sport", "education", "transportation", "other"];
       // Get a list of cost properties
       const index = Costs.prototype.getPropertiesList();
-      const indexProperties = Object.keys(Costs);
 
       // Initialize an empty array for each category
       categories.forEach(c => {
