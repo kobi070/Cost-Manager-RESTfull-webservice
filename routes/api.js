@@ -20,22 +20,27 @@ const winstonLogger = winston.createLogger({
 // Function to insert a dummy user into the Users collection
 async function insertUser() {
   try {
-
-    // Define the dummy user object
-    const dummyUser = {
-      _id : 123123,
-      first_name: 'moshe',
-      last_name: 'israeli',
-      birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
-        month: "long",
-        day: "numeric",
-        year: "numeric"
-      }).toString(),
-    };
-    // Try to insert the dummy user into the Users collection
-    const insertedUser = await Users.insertOne(dummyUser);
-    winstonLogger.info("Inserted a new user into the Users collection.");
-    winstonLogger.info(`A user with the following details has been created: ${insertedUser}`);
+    const existingUser = await Users.find({id:123123});
+    if (!existingUser){
+      // Define the dummy user object
+      const dummyUser = {
+        id : 123123,
+        first_name: 'moshe',
+        last_name: 'israeli',
+        birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        }).toString(),
+      };
+      // Try to insert the dummy user into the Users collection
+      const insertedUser = await Users.insertOne(dummyUser);
+      winstonLogger.info("Inserted a new user into the Users collection.");
+      winstonLogger.info(`A user with the following details has been created: ${insertedUser}`);
+    }
+    else {
+      winstonLogger.info(`User with the following details alredy exist: ${dummyUser}`);
+    }
   } catch (error) {
     winstonLogger.error(`An error occurred while trying to insert a new user: ${error}`);
   }
@@ -51,10 +56,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     winstonLogger.info("Received a POST request for /addcost endpoint.");
     
     // Destructure the parameters from the request
-    const { year, month, day, description, category, sum} = req.params;
-  
-    // Set user_id by dummy
-    var user_id = 123123;
+    const {user_id, year, month, day, description, category, sum} = req.params;
     
     // Check if any required parameters are missing
     if ( !year || !month || !day || !description || !category || !sum){
