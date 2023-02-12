@@ -27,7 +27,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 
-process.env.MONGO_URI = 'mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority';
 
 const app = express();
 
