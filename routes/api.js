@@ -22,7 +22,7 @@ async function insertUser() {
   try {
       // Define the dummy user object
       const dummyUser = {
-        _id : 123123,
+        id : 123123,
         first_name: 'moshe',
         last_name: 'israeli',
         birthday: new Date(Date.parse("January, 10, 1990")).toLocaleDateString("en-us", {
@@ -52,8 +52,6 @@ router.post('/addcost/', (req, res, next) =>{
     
     // Destructure the parameters from the request
     const {user_id, year, month, day, description, category, sum} = req.query;
-
-    // console.log(`${}`);
   
     // Check if any required parameters are missing
     if (!user_id || !year || !month || !day || !description || !category || !sum){

@@ -243,3 +243,10 @@
 {"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
 {"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
 {"level":"info","message":"The document is already inserted in the database","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"GET /","service":"user-service"}
+{"level":"info","message":"GET /api/report?user_id=123&year=2022&month=02","service":"user-service"}
+{"level":"info","message":{"month":"02","user_id":"123","year":"2022"},"service":"user-service"}
+{"level":"info","message":{"education":[],"food":[{"day":14,"description":"Shopping","month":"02","sum":50,"user_id":123,"year":2022}],"health":[],"housing":[],"other":[],"sport":[],"transportation":[]},"service":"user-service"}
+{"level":"info","message":"Inserted a new user into the Users collection.","service":"user-service"}
+{"level":"info","message":"A user with the following details has been created: {\n  id: 123123,\n  first_name: 'moshe',\n  last_name: 'israeli',\n  birthday: 'January 10, 1990',\n  _id: new ObjectId(\"63ede2e1019278a9c0b7add9\"),\n  __v: 0\n}","service":"user-service"}
