@@ -25,12 +25,14 @@ const winstonLogger = winston.createLogger({
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+const aboutRouter = require('./routes/about');
 
-
+const mongo_uri = 'mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority';
 const app = express();
 
 // connect to mongoose server
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(mongo_uri);
 // 
 mongoose.Promise = global.Promise;
 
@@ -56,6 +58,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/about', aboutRouter);
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler

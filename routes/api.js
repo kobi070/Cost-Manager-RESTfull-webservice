@@ -44,13 +44,15 @@ async function insertUser() {
 insertUser();
 
 // POST method to add cost using URL parameters (user_id, year, month, day, description, category, sum)
-router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (req, res, next) =>{
+router.post('/addcost/', (req, res, next) =>{
   
     // Log that a POST request has been received for the /addcost endpoint
     winstonLogger.info("Received a POST request for /addcost endpoint.");
     
     // Destructure the parameters from the request
-    const {user_id, year, month, day, description, category, sum} = req.params;
+    const {user_id, year, month, day, description, category, sum} = req.query;
+
+    // console.log(`${}`);
   
     // Check if any required parameters are missing
     if (!user_id || !year || !month || !day || !description || !category || !sum){
@@ -58,7 +60,7 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
     }
     
     // Check if the category is valid
-    if (["food", "health", "housing", "sport", "education", "transportation", "other"].indexOf(category) === -1) {
+    if (Costs.schema.path('category').enumValues.indexOf(category) === -1) {
         return res.status(400).json({ error: "Invalid category" });
     }
     
@@ -86,23 +88,14 @@ router.post('/addcost/:user_id/:year/:month/:day/:description/:category/:sum', (
       next(error);
     });
 });
-// GET method for /about => returns information about the developers
-router.get('/about', (req, res) => {
-    winstonLogger.info("GET method for /about");
-    // winstonLogger.info(`Session created successfully with ID: ${req.session.id}`);
-    const devs = [
-        {first_name: 'Kobi', last_name: 'Kuzi', id: 316063908, email: 'Kobi070@gmail.com'},
-        {first_name: 'Dan', last_name: 'Kvitca', id: 205570674, email: 'Dkvitca@gmail.com'}
-    ]
-    res.json(devs);
-});
+
 // Get report for specific user by year and month
-router.get('/report/:user_id/:year/:month', (req, res) => {
+router.get('/report/', (req, res) => {
   // Destructure user_id, year, and month from the request parameters
-  const {user_id, year, month} = req.params;
+  const {user_id, year, month} = req.query;
 
   // Log the request parameters for debugging purposes
-  winstonLogger.info(req.params);
+  winstonLogger.info(req.query);
 
   // Initialize an object to store the results
   const result = {};
@@ -113,9 +106,11 @@ router.get('/report/:user_id/:year/:month', (req, res) => {
     if(err) winstonLogger.error(`this is err : ${err}`);
     else{
       // Define an array of categories
-      const categories = ["food", "health", "housing", "sport", "education", "transportation", "other"];
+      const categories = Costs.schema.path('category').enumValues;
+      
       // Get a list of cost properties
-      const index = Costs.prototype.getPropertiesList();
+      const objectIndex = Object.keys(Costs.schema.paths);
+      var index = objectIndex.slice(0, objectIndex.length - 2);
 
       // Initialize an empty array for each category
       categories.forEach(c => {
