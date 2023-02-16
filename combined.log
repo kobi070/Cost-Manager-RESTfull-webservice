@@ -216,3 +216,30 @@
 {"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
 {"level":"info","message":"GET /about","service":"user-service"}
 {"level":"info","message":"GET method for /about","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"A new cost document has been created: {\n  user_id: 123,\n  year: 2022,\n  month: '02',\n  day: 14,\n  description: 'Shopping',\n  category: 'food',\n  sum: 50,\n  _id: new ObjectId(\"63eddec0b4cfd7792e0f94af\"),\n  __v: 0\n}","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"A new cost document has been created: {\n  user_id: 123,\n  year: 2022,\n  month: '02',\n  day: 14,\n  description: 'Shopping',\n  category: 'food',\n  sum: 50,\n  _id: new ObjectId(\"63eddef3212b440f17b6bdb9\"),\n  __v: 0\n}","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"A new cost document has been created: {\n  user_id: 123,\n  year: 2022,\n  month: '02',\n  day: 14,\n  description: 'Shopping',\n  category: 'food',\n  sum: 50,\n  _id: new ObjectId(\"63eddf19c1a0d8fdf8c2d323\"),\n  __v: 0\n}","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"The document is already inserted in the database","service":"user-service"}
+{"level":"info","message":"GET /","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"The document is already inserted in the database","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"The document is already inserted in the database","service":"user-service"}
+{"level":"error","message":"An error occurred while trying to insert a new user: ValidationError: _id: Cast to ObjectId failed for value \"123123\" (type number) at path \"_id\" because of \"BSONTypeError\"","service":"user-service"}
+{"level":"info","message":"POST /api/addcost?user_id=123&year=2022&month=02&day=14&description=Shopping&category=food&sum=50","service":"user-service"}
+{"level":"info","message":"Received a POST request for /addcost endpoint.","service":"user-service"}
+{"level":"info","message":"The document is already inserted in the database","service":"user-service"}

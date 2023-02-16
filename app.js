@@ -27,12 +27,11 @@ const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const aboutRouter = require('./routes/about');
 
-const mongo_uri = 'mongodb+srv://kobi070:Sku16021996@cluster1.mtw9dlv.mongodb.net/?retryWrites=true&w=majority';
 const app = express();
 
 // connect to mongoose server
-// mongoose.connect(process.env.MONGODB_URI);
-mongoose.connect(mongo_uri);
+mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(mongo_uri);
 // 
 mongoose.Promise = global.Promise;
 

@@ -45,6 +45,7 @@ insertUser();
 
 // POST method to add cost using URL parameters (user_id, year, month, day, description, category, sum)
 router.post('/addcost/', (req, res, next) =>{
+
   
     // Log that a POST request has been received for the /addcost endpoint
     winstonLogger.info("Received a POST request for /addcost endpoint.");
@@ -74,19 +75,39 @@ router.post('/addcost/', (req, res, next) =>{
         category,
         sum
     }
+
+    const costsExists = async (newCosts) => {
+      const result = await Costs.findOne(newCosts);
+      console.log(result);
+      if (result){
+        return true;
+      }
+      else{
+        return false;
+      }
+    };
     
-    // Try to insert the newCosts object into the Costs collection
-    Costs.insertOne(newCosts).then( (newCosts) => {      
+    costsExists(newCosts);
+    console.log(costsExists);
+
+    if (!costsExists){
+      // Try to insert the newCosts object into the Costs collection
+      Costs.insertOne(newCosts).then( (newCosts) => {      
         // Log that a new cost document has been created
         winstonLogger.info(`A new cost document has been created: ${newCosts}`);
         // Send the new cost object back to the client
         res.send(`A new cost with the following details has been created: ${newCosts}`);
-    }).catch(error => {      
+      }).catch(error => {      
       // log an error if it occurred while trying to insert a new cost
       winstonLogger.error(`An error occurred while trying to insert a new cost: ${error}`);
       // pass the error to the next middleware
       next(error);
-    });
+      });
+    }
+    else{
+      winstonLogger.info(`The document is already inserted in the database`);
+      res.send(`The document is already inserted in the database`);
+    }
 });
 
 // Get report for specific user by year and month
