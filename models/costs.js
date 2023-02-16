@@ -1,5 +1,6 @@
 // Kobi Kuzi 316063908
 // Dan Kvitca 205570674,
+// costs.js
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -49,6 +50,11 @@ CostsSchema.statics.insertOne = function(costs) {
     });
 };
 
+CostsSchema.statics.exists = function(query) {
+    return this.findOne(query).then(doc => {
+      return !!doc;
+    });
+  };
 
 const Costs = mongoose.model('costs', CostsSchema);
 

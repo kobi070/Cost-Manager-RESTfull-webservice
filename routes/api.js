@@ -1,5 +1,6 @@
 // Kobi Kuzi 316063908
-// Dan Kvitca 205570674,
+// Dan Kvitca 205570674
+// api.js
 
 const express = require('express');
 const router = express.Router();
@@ -84,27 +85,22 @@ router.post('/addcost/', (req, res, next) =>{
         return false;
       }
     };
-    
 
-    if (costsExists === null){
-      res.sendStatus(costsExists);
-      // Try to insert the newCosts object into the Costs collection
-      Costs.insertOne(newCosts).then( (newCosts) => {      
-        // Log that a new cost document has been created
-        winstonLogger.info(`A new cost document has been created: ${newCosts}`);
-        // Send the new cost object back to the client
-        res.send(`A new cost with the following details has been created: ${newCosts}`);
-      }).catch(error => {      
-      // log an error if it occurred while trying to insert a new cost
-      winstonLogger.error(`An error occurred while trying to insert a new cost: ${error}`);
-      // pass the error to the next middleware
-      next(error);
-      });
-    }
-    else{
-      winstonLogger.info(`The document is already inserted in the database`);
-      res.send(`The document is already inserted in the database`);
-    }
+    const isExist = Costs.exists(newCosts).then((isExist) => true);
+    console.log(isExist);
+
+    // Try to insert the newCosts object into the Costs collection
+    Costs.insertOne(newCosts).then( (newCosts) => {      
+      // Log that a new cost document has been created
+      winstonLogger.info(`A new cost document has been created: ${newCosts}`);
+      // Send the new cost object back to the client
+      res.send(`A new cost with the following details has been created: ${newCosts}`);
+    }).catch(error => {      
+    // log an error if it occurred while trying to insert a new cost
+    winstonLogger.error(`An error occurred while trying to insert a new cost: ${error}`);
+    // pass the error to the next middleware
+    next(error);
+    });
 });
 
 // Get report for specific user by year and month
