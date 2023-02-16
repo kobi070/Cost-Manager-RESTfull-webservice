@@ -88,7 +88,7 @@ router.post('/addcost/', (req, res, next) =>{
     costsExists(newCosts);
     console.log(costsExists);
 
-    if (!costsExists){
+    if (costsExists){
       // Try to insert the newCosts object into the Costs collection
       Costs.insertOne(newCosts).then( (newCosts) => {      
         // Log that a new cost document has been created
