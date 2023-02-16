@@ -74,7 +74,7 @@ router.post('/addcost/', (req, res, next) =>{
         sum
     }
 
-    const costsExists = async function(newCosts) {
+    var costsExists = async (newCosts) => {
       const result = await Costs.findOne(newCosts);
       // console.log(result);
       if (result){
@@ -85,8 +85,6 @@ router.post('/addcost/', (req, res, next) =>{
       }
     };
     
-    costsExists(newCosts);
-    console.log(costsExists);
 
     if (costsExists === null){
       res.sendStatus(costsExists);
