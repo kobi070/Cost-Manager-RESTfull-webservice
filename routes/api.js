@@ -1,5 +1,5 @@
-// Kobi Kuzi 316063908
-// Dan Kvitca 205570674
+// Kobi Kuzi xxxxxxxx
+// Dan Kvitca xxxxxxxx
 // api.js
 
 const express = require('express');
