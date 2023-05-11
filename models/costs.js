@@ -1,5 +1,5 @@
-// Kobi Kuzi 316063908
-// Dan Kvitca 205570674,
+// Kobi Kuzi xxxxxxxx
+// Dan Kvitca xxxxxxxx,
 // costs.js
 
 const mongoose = require('mongoose');
